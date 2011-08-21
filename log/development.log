@@ -9323,3 +9323,676 @@ ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked: INSE
 Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
 Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
 Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 15:30:01 -0500
+
+Errno::ENOENT (No such file or directory - /Users/beverly/Rails/jsm2/config/locales/en.yml):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (18.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 15:30:27 -0500
+
+Errno::ENOENT (No such file or directory - /Users/beverly/Rails/jsm2/config/locales/en.yml):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.7ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/beverly/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 15:33:01 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (NULL, 'unsubmitted', '2011-08-21 20:33:02.946167', '2011-08-21 20:33:02.946167')
+SQLite3::BusyException: database is locked: INSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (NULL, 'unsubmitted', '2011-08-21 20:33:02.946167', '2011-08-21 20:33:02.946167')
+Completed 500 Internal Server Error in 181ms
+
+ActiveRecord::StatementInvalid (SQLite3::BusyException: database is locked: INSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (NULL, 'unsubmitted', '2011-08-21 20:33:02.946167', '2011-08-21 20:33:02.946167')):
+  app/controllers/application_controller.rb:7:in `rescue in load_order'
+  app/controllers/application_controller.rb:4:in `load_order'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.2ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20110813062627)
+Migrating to AddStockToProducts (20110813120809)
+Migrating to CreateOrderItems (20110813132156)
+Migrating to CreateOrders (20110813132411)
+Migrating to AddDefaultValueToOrderItemsQuantity (20110821062431)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.6ms)[0m  [1mCREATE TEMPORARY TABLE "altered_order_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "order_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("order_items")
+  [1m[36mSQL (0.3ms)[0m  [1mDROP TABLE "order_items"[0m
+SQLite3::BusyException: database is locked: DROP TABLE "order_items"
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20110813062627)
+Migrating to AddStockToProducts (20110813120809)
+Migrating to CreateOrderItems (20110813132156)
+Migrating to CreateOrders (20110813132411)
+Migrating to AddDefaultValueToOrderItemsQuantity (20110821062431)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TEMPORARY TABLE "altered_order_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "order_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("order_items")
+  [1m[36mSQL (0.6ms)[0m  [1mDROP TABLE "order_items"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "order_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "order_id" integer, "quantity" integer DEFAULT 0, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_order_items")[0m
+  [1m[35mSQL (0.5ms)[0m  DROP TABLE "altered_order_items"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110821062431')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("order_items")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("orders")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("products")[0m
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 15:36:56 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mAREL (0.6ms)[0m  [1mINSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (NULL, 'unsubmitted', '2011-08-21 20:36:56.070537', '2011-08-21 20:36:56.070537')[0m
+  [1m[35mProduct Load (0.7ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (17.9ms)
+Completed 200 OK in 82ms (Views: 23.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-21 15:36:56 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/purple_grapes.jpg" for 127.0.0.1 at 2011-08-21 15:36:56 -0500
+
+ActionController::RoutingError (No route matches "/images/products/purple_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/pineapple.jpg" for 127.0.0.1 at 2011-08-21 15:36:56 -0500
+
+ActionController::RoutingError (No route matches "/images/products/pineapple.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-21 15:36:56 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-21 15:36:56 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started POST "/order_items?product_id=2" for 127.0.0.1 at 2011-08-21 15:37:04 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"uQf9n8Hju0QETyCToUEcLttWQleuBj/1d0tqmNDdMGs=", "product_id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 16 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 2 AND ("order_items".order_id = 16) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (2, 16, 0, '2011-08-21 20:37:04.461647', '2011-08-21 20:37:04.461647')[0m
+Redirected to http://localhost:3000/order_items/19
+Completed 302 Found in 91ms
+
+
+Started GET "/order_items/19" for 127.0.0.1 at 2011-08-21 15:37:04 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 16 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (38.7ms)
+Completed 500 Internal Server Error in 53ms
+
+ActionView::Template::Error (undefined method `product_id' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <strong>Product:</strong>
+    5:   <%= @order_item.product_id %>
+    6: </p>
+    7: <p>
+    8:   <strong>Order:</strong>
+  app/views/order_items/show.html.erb:5:in `_app_views_order_items_show_html_erb___3071716933492341938_2157072000__1330990531785937850'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.0ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (15.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 15:38:27 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 16 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 68ms (Views: 21.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/images/products/pineapple.jpg" for 127.0.0.1 at 2011-08-21 15:38:27 -0500
+
+ActionController::RoutingError (No route matches "/images/products/pineapple.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-21 15:38:27 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-21 15:38:27 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/products/purple_grapes.jpg" for 127.0.0.1 at 2011-08-21 15:38:27 -0500
+
+ActionController::RoutingError (No route matches "/images/products/purple_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-21 15:38:28 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-21 15:38:39 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (39.8ms)
+Completed 200 OK in 53ms (Views: 44.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/15" for 127.0.0.1 at 2011-08-21 15:38:42 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"15"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 15 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 15)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 15)
+  [1m[36mOrderItem Load (0.5ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 15)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (82.5ms)
+Completed 500 Internal Server Error in 97ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.*):
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+    33: 		<td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete %></td>
+    34: 	<% end %>
+    35: 	<td><%= print_price @order.total%></td>
+  app/models/order_item.rb:7:in `subtotal'
+  app/views/orders/show.html.erb:32:in `block in _app_views_orders_show_html_erb___195610188888118313_2158392500__1330990531785937850'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb___195610188888118313_2158392500__1330990531785937850'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20110813062627)
+Migrating to AddStockToProducts (20110813120809)
+Migrating to CreateOrderItems (20110813132156)
+Migrating to CreateOrders (20110813132411)
+Migrating to AddDefaultValueToOrderItemsQuantity (20110821062431)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("order_items")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("orders")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+  [1m[36mSQL (0.4ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5017.5ms)[0m  [1mDROP TABLE "order_items"[0m
+SQLite3::BusyException: database is locked: DROP TABLE "order_items"
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to AddDefaultValueToOrderItemsQuantity (20110821062431)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mAREL (5016.5ms)[0m  [1mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110821062431'[0m
+SQLite3::BusyException: database is locked: DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20110821062431'
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20110813062627)
+Migrating to AddStockToProducts (20110813120809)
+Migrating to CreateOrderItems (20110813132156)
+Migrating to CreateOrders (20110813132411)
+Migrating to AddDefaultValueToOrderItemsQuantity (20110821062431)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("order_items")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("orders")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20110813062627)
+Migrating to AddStockToProducts (20110813120809)
+Migrating to CreateOrderItems (20110813132156)
+Migrating to CreateOrders (20110813132411)
+Migrating to AddDefaultValueToOrderItemsQuantity (20110821062431)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("order_items")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("orders")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (2.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (1.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreateProducts (20110813062627)
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "price" integer, "description" text, "image_url" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110813062627')
+Migrating to AddStockToProducts (20110813120809)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "products" ADD "stock" integer DEFAULT 0[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110813120809')
+Migrating to CreateOrderItems (20110813132156)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "order_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "order_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110813132156')
+Migrating to CreateOrders (20110813132411)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "customer_id" integer, "status" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110813132411')
+Migrating to AddDefaultValueToOrderItemsQuantity (20110821062431)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "altered_order_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "order_id" integer, "quantity" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("order_items")
+  [1m[36mSQL (0.4ms)[0m  [1mDROP TABLE "order_items"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "order_items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "product_id" integer, "order_id" integer, "quantity" integer DEFAULT 0, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_order_items")[0m
+  [1m[35mSQL (0.4ms)[0m  DROP TABLE "altered_order_items"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110821062431')[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("order_items")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("orders")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("products")[0m
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-21 16:01:23 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 16ms (Views: 6.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 16:01:35 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 16 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (NULL, 'unsubmitted', '2011-08-21 21:01:35.309973', '2011-08-21 21:01:35.309973')[0m
+  [1m[35mProduct Load (0.4ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 65ms (Views: 6.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2011-08-21 16:01:37 -0500
+  Processing by ProductsController#new as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+Rendered products/_form.html.erb (134.1ms)
+Rendered products/new.html.erb within layouts/application (137.8ms)
+Completed 200 OK in 161ms (Views: 142.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2011-08-21 16:03:00 -0500
+  Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uQf9n8Hju0QETyCToUEcLttWQleuBj/1d0tqmNDdMGs=", "product"=>{"title"=>"Oranges", "price"=>"2.99", "description"=>"1 bag of oranges", "stock"=>"3", "image_url"=>"oranges.jpg"}, "commit"=>"Create Product"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+Rendered products/_form.html.erb (5.4ms)
+Rendered products/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 39ms (Views: 12.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2011-08-21 16:03:11 -0500
+  Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uQf9n8Hju0QETyCToUEcLttWQleuBj/1d0tqmNDdMGs=", "product"=>{"title"=>"Oranges", "price"=>"299", "description"=>"1 bag of oranges", "stock"=>"3", "image_url"=>"oranges.jpg"}, "commit"=>"Create Product"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "products" ("title", "price", "description", "image_url", "created_at", "updated_at", "stock") VALUES ('Oranges', 299, '1 bag of oranges', 'oranges.jpg', '2011-08-21 21:03:11.638642', '2011-08-21 21:03:11.638642', 3)
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 66ms
+
+
+Started GET "/products/1" for 127.0.0.1 at 2011-08-21 16:03:11 -0500
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered products/show.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 67ms (Views: 46.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 16:03:16 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 38ms (Views: 16.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-21 16:03:16 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2011-08-21 16:03:18 -0500
+  Processing by ProductsController#new as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+Rendered products/_form.html.erb (10.7ms)
+Rendered products/new.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 68ms (Views: 17.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2011-08-21 16:03:35 -0500
+  Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uQf9n8Hju0QETyCToUEcLttWQleuBj/1d0tqmNDdMGs=", "product"=>{"title"=>"Watermelon", "price"=>"499", "description"=>"seedless watermelon", "stock"=>"2", "image_url"=>"watermelon.jpg"}, "commit"=>"Create Product"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "products" ("title", "price", "description", "image_url", "created_at", "updated_at", "stock") VALUES ('Watermelon', 499, 'seedless watermelon', 'watermelon.jpg', '2011-08-21 21:03:35.688222', '2011-08-21 21:03:35.688222', 2)[0m
+Redirected to http://localhost:3000/products/2
+Completed 302 Found in 65ms
+
+
+Started GET "/products/2" for 127.0.0.1 at 2011-08-21 16:03:35 -0500
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 37ms (Views: 15.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 16:03:38 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 65ms (Views: 17.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-21 16:03:39 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-21 16:03:39 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2011-08-21 16:03:40 -0500
+  Processing by ProductsController#new as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+Rendered products/_form.html.erb (44.7ms)
+Rendered products/new.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 71ms (Views: 52.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2011-08-21 16:04:04 -0500
+  Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uQf9n8Hju0QETyCToUEcLttWQleuBj/1d0tqmNDdMGs=", "product"=>{"title"=>"Green Grapes", "price"=>"169", "description"=>"Bunch of green grapes", "stock"=>"5", "image_url"=>"green_grapes.jpg"}, "commit"=>"Create Product"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "products" ("title", "price", "description", "image_url", "created_at", "updated_at", "stock") VALUES ('Green Grapes', 169, 'Bunch of green grapes', 'green_grapes.jpg', '2011-08-21 21:04:04.503840', '2011-08-21 21:04:04.503840', 5)
+Redirected to http://localhost:3000/products/3
+Completed 302 Found in 35ms
+
+
+Started GET "/products/3" for 127.0.0.1 at 2011-08-21 16:04:04 -0500
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1
+Rendered products/show.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 39ms (Views: 17.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 16:04:06 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (46.4ms)
+Completed 200 OK in 67ms (Views: 50.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-21 16:04:06 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-21 16:04:06 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-21 16:04:06 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2011-08-21 16:04:09 -0500
+  Processing by ProductsController#new as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+Rendered products/_form.html.erb (10.1ms)
+Rendered products/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 36ms (Views: 17.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2011-08-21 16:04:36 -0500
+  Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uQf9n8Hju0QETyCToUEcLttWQleuBj/1d0tqmNDdMGs=", "product"=>{"title"=>"Cucumber", "price"=>"50", "description"=>"1 cucumber", "stock"=>"4", "image_url"=>"cucumber.jpg"}, "commit"=>"Create Product"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "products" ("title", "price", "description", "image_url", "created_at", "updated_at", "stock") VALUES ('Cucumber', 50, '1 cucumber', 'cucumber.jpg', '2011-08-21 21:04:36.844644', '2011-08-21 21:04:36.844644', 4)[0m
+Redirected to http://localhost:3000/products/4
+Completed 302 Found in 35ms
+
+
+Started GET "/products/4" for 127.0.0.1 at 2011-08-21 16:04:36 -0500
+  Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1[0m
+Rendered products/show.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 66ms (Views: 15.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 16:04:46 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 37ms (Views: 20.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-21 16:04:46 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (40.8ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-21 16:04:46 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/cucumber.jpg" for 127.0.0.1 at 2011-08-21 16:04:46 -0500
+
+ActionController::RoutingError (No route matches "/images/products/cucumber.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-21 16:04:46 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/order_items?product_id=2" for 127.0.0.1 at 2011-08-21 16:04:53 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"uQf9n8Hju0QETyCToUEcLttWQleuBj/1d0tqmNDdMGs=", "product_id"=>"2"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 2 AND ("order_items".order_id = 1) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (2, 1, 0, '2011-08-21 21:04:53.276057', '2011-08-21 21:04:53.276057')
+Redirected to http://localhost:3000/order_items/1
+Completed 302 Found in 41ms
+
+
+Started GET "/order_items/1" for 127.0.0.1 at 2011-08-21 16:04:53 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 15ms
+
+ActionView::Template::Error (undefined method `product_id' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <strong>Product:</strong>
+    5:   <%= @order_item.product_id %>
+    6: </p>
+    7: <p>
+    8:   <strong>Order:</strong>
+  app/views/order_items/show.html.erb:5:in `_app_views_order_items_show_html_erb___3071716933492341938_2164325220__1330990531785937850'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.4ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.7ms)
