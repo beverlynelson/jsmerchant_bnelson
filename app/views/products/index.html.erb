@@ -1,0 +1,29 @@
+<% title "Products" %>
+
+<h1>All Products</h1>
+
+
+<table>
+  <tr>
+	<th>Image Url</th>
+    <th>Title / Description</th>
+    <th>Price</th>
+	<th>Stock</th>
+	<th>Buy</th>
+    
+  </tr>
+  <% for product in @products %>
+    <tr>
+      <td><%= image_tag "/images/products/#{product.image_url}" %></td>
+      <td><span class="product_title"><%= product.title %></span>  <%= product.description %></td>
+	  <td><%= print_price(product.price) %></td>
+      <td><%= print_stock(product.stock) %></td>
+	  <td><%= link_to "Show", product_path(product) %></td>
+      <td><%= link_to "Edit", edit_product_path(product) %></td>
+      <td><%= link_to "Destroy", product, :confirm => 'Are you sure?', :method => :delete %></td>
+	  <td><%= button_to "Add to Cart", order_items_path(:product_id => product.id) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "Create a New Product", new_product_path, :id => "new_product"%></p>

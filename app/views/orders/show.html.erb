@@ -1,0 +1,52 @@
+<h1>Your Order</h1>
+<p>
+	Item Count: <%== @order.order_items.count %>
+</p>
+<table>
+	<tr>
+		<th>Customer</th>
+		<td><%= @order.customer_id %></td>
+	</tr>
+	<tr>
+		<th>Status:</th>
+		<td><%= @order.status %></td>
+	</tr>
+	<tr>
+		<th>Items:</th>
+		<td><%= @order.order_items.count %></td>
+	</tr>
+	<tr>
+		<th>Items</th>
+		<th>Title</th>
+		<th>Quantity</th>
+		<th>Unit Price</th>
+		<th>Subtotal</th>
+		<th>Order Total</th>
+	</tr>
+	<% @order.order_items.each do |item| %>
+	<tr>
+		<td><%= image_tag "/images/products/#{item.product.image_url}" %></td>
+		<td><%= item.product.title %></td>
+		<td><%= item.quantity %></td>
+		<td><%= print_price(item.product.price) %></td>
+		<td><%= print_price item.subtotal %></td>
+		<td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
+	<td><%= print_price @order.total%></td>
+	<%= link_to "Empty Cart", @order, :confirm => 'Are you sure?', :method => :delete %>
+	<!-- more code will go here -->
+</table>
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer_id %>
+</p>
+<p>
+  <strong>Status:</strong>
+  <%= @order.status %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_order_path(@order) %> |
+  <%= link_to "Destroy", @order, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", orders_path %>
+</p>
