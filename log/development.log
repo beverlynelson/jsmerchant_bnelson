@@ -9996,3 +9996,2763 @@ ActionView::Template::Error (undefined method `product_id' for nil:NilClass):
 Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
 Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.4ms)
 Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.7ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-21 16:08:11 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 22ms (Views: 13.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-21 16:08:15 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (80.9ms)
+Completed 200 OK in 96ms (Views: 84.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-21 16:08:15 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.8ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-21 16:19:33 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (16.8ms)
+Completed 200 OK in 38ms (Views: 20.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-21 16:19:34 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/products/cucumber.jpg" for 127.0.0.1 at 2011-08-21 16:19:34 -0500
+
+ActionController::RoutingError (No route matches "/images/products/cucumber.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (34.5ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-21 16:19:34 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-21 16:19:34 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started POST "/order_items?product_id=2" for 127.0.0.1 at 2011-08-21 16:20:54 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"uQf9n8Hju0QETyCToUEcLttWQleuBj/1d0tqmNDdMGs=", "product_id"=>"2"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 2 AND ("order_items".order_id = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/order_items/1
+Completed 302 Found in 37ms
+
+
+Started GET "/order_items/1" for 127.0.0.1 at 2011-08-21 16:20:54 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 46ms
+
+ActionView::Template::Error (undefined method `product_id' for nil:NilClass):
+    2: 
+    3: <p>
+    4:   <strong>Product:</strong>
+    5:   <%= @order_item.product_id %>
+    6: </p>
+    7: <p>
+    8:   <strong>Order:</strong>
+  app/views/order_items/show.html.erb:5:in `_app_views_order_items_show_html_erb___3071716933492341938_2165276720__1330990531785937850'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.6ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.6ms)
+DEPRECATION WARNING: config.action_view.debug_rjs will be removed in 3.1, from 3.1 onwards you will need to install prototype-rails to continue to use RJS templates . (called from service at /Users/beverly/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 21:25:32 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (11.2ms)[0m  INSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (NULL, 'unsubmitted', '2011-08-25 02:25:33.956195', '2011-08-25 02:25:33.956195')
+  [1m[36mProduct Load (21.7ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 343ms (Views: 53.0ms | ActiveRecord: 33.1ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-24 21:25:34 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-24 21:25:34 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/cucumber.jpg" for 127.0.0.1 at 2011-08-24 21:25:34 -0500
+
+ActionController::RoutingError (No route matches "/images/products/cucumber.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-24 21:25:34 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started POST "/order_items?product_id=2" for 127.0.0.1 at 2011-08-24 21:27:07 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"2"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 2 AND ("order_items".order_id = 2) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (2, 2, 0, '2011-08-25 02:27:07.498904', '2011-08-25 02:27:07.498904')
+Redirected to http://localhost:3000/order_items/2
+Completed 302 Found in 185ms
+
+
+Started GET "/order_items/2" for 127.0.0.1 at 2011-08-24 21:27:07 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 2 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 66ms (Views: 44.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/order_items/2/edit" for 127.0.0.1 at 2011-08-24 21:27:19 -0500
+  Processing by OrderItemsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 2 LIMIT 1
+Rendered order_items/_form.html.erb (129.0ms)
+Rendered order_items/edit.html.erb within layouts/application (134.5ms)
+Completed 200 OK in 192ms (Views: 172.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items/2" for 127.0.0.1 at 2011-08-24 21:27:24 -0500
+  Processing by OrderItemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "order_item"=>{"product_id"=>"2", "order_id"=>"2", "quantity"=>"1"}, "commit"=>"Update Order item", "id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "order_items" SET "quantity" = 1, "updated_at" = '2011-08-25 02:27:24.874859' WHERE "order_items"."id" = 2[0m
+Redirected to http://localhost:3000/order_items/2
+Completed 302 Found in 62ms
+
+
+Started GET "/order_items/2" for 127.0.0.1 at 2011-08-24 21:27:24 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 2 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 35ms (Views: 13.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 21:27:26 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+Rendered order_items/index.html.erb within layouts/application (33.4ms)
+Completed 500 Internal Server Error in 51ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    6:     <th>Order</th>
+    7:     <th>Quantity</th>
+    8:   </tr>
+    9:   <% for order_item in @order_items %>
+    10:     <tr>
+    11:       <td><%= order_item.product_id %></td>
+    12:       <td><%= order_item.order_id %></td>
+  app/views/order_items/index.html.erb:9:in `_app_views_order_items_index_html_erb___4445847485994249029_2170802980_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (9.4ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (28.1ms)
+
+
+Started GET "/order_items/2" for 127.0.0.1 at 2011-08-24 21:29:18 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 2 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 64ms (Views: 14.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 21:29:20 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items"
+Rendered order_items/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    6:     <th>Order</th>
+    7:     <th>Quantity</th>
+    8:   </tr>
+    9:   <% for order_item in @order_items %>
+    10:     <tr>
+    11:       <td><%= order_item.product_id %></td>
+    12:       <td><%= order_item.order_id %></td>
+  app/views/order_items/index.html.erb:9:in `_app_views_order_items_index_html_erb___4445847485994249029_2169179440_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (43.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (48.2ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 21:29:23 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.3ms)[0m  SELECT "order_items".* FROM "order_items"
+Rendered order_items/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 24ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    6:     <th>Order</th>
+    7:     <th>Quantity</th>
+    8:   </tr>
+    9:   <% for order_item in @order_items %>
+    10:     <tr>
+    11:       <td><%= order_item.product_id %></td>
+    12:       <td><%= order_item.order_id %></td>
+  app/views/order_items/index.html.erb:9:in `_app_views_order_items_index_html_erb___4445847485994249029_2170282640_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (14.6ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (19.7ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 21:30:19 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items"
+Rendered order_items/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 52ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    6:     <th>Order</th>
+    7:     <th>Quantity</th>
+    8:   </tr>
+    9:   <% for order_item in @order_items %>
+    10:     <tr>
+    11:       <td><%= order_item.product_id %></td>
+    12:       <td><%= order_item.order_id %></td>
+  app/views/order_items/index.html.erb:9:in `_app_views_order_items_index_html_erb___4445847485994249029_2171390000_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (13.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (18.8ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 21:31:00 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items"
+Rendered order_items/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 65ms (Views: 15.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 21:31:18 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (45.6ms)
+Completed 200 OK in 67ms (Views: 49.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-24 21:31:18 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-24 21:31:18 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-24 21:31:18 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/products/cucumber.jpg" for 127.0.0.1 at 2011-08-24 21:31:18 -0500
+
+ActionController::RoutingError (No route matches "/images/products/cucumber.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/order_items?product_id=3" for 127.0.0.1 at 2011-08-24 21:31:23 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"3"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 3 AND ("order_items".order_id = 2) LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (3, 2, 0, '2011-08-25 02:31:23.971020', '2011-08-25 02:31:23.971020')[0m
+Redirected to http://localhost:3000/order_items/3
+Completed 302 Found in 40ms
+
+
+Started GET "/order_items/3" for 127.0.0.1 at 2011-08-24 21:31:23 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 3 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 34ms (Views: 13.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 21:31:26 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT "order_items".* FROM "order_items"[0m
+Rendered order_items/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 66ms (Views: 16.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 21:31:31 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.7ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 42ms (Views: 33.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 21:31:38 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (82.8ms)
+Completed 200 OK in 127ms (Views: 116.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-24 21:31:38 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 21:31:44 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.7ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 23ms (Views: 14.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/2" for 127.0.0.1 at 2011-08-24 21:31:46 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (83.3ms)
+Completed 200 OK in 98ms (Views: 86.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-24 21:31:46 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-24 21:31:46 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/orders/2" for 127.0.0.1 at 2011-08-24 22:05:04 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (53.2ms)
+Completed 200 OK in 98ms (Views: 56.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-24 22:05:05 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-24 22:05:05 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 22:05:36 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 37ms (Views: 20.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-24 22:05:36 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-24 22:05:36 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/images/products/cucumber.jpg" for 127.0.0.1 at 2011-08-24 22:05:36 -0500
+
+ActionController::RoutingError (No route matches "/images/products/cucumber.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-24 22:05:36 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 22:19:06 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 38ms (Views: 20.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-24 22:19:07 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (39.9ms)
+
+
+Started GET "/images/products/green_grapes.jpg" for 127.0.0.1 at 2011-08-24 22:19:07 -0500
+
+ActionController::RoutingError (No route matches "/images/products/green_grapes.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/images/products/cucumber.jpg" for 127.0.0.1 at 2011-08-24 22:19:07 -0500
+
+ActionController::RoutingError (No route matches "/images/products/cucumber.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
+
+
+Started GET "/images/products/oranges.jpg" for 127.0.0.1 at 2011-08-24 22:19:07 -0500
+
+ActionController::RoutingError (No route matches "/images/products/oranges.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/products/1/edit" for 127.0.0.1 at 2011-08-24 22:20:46 -0500
+  Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered products/_form.html.erb (17.6ms)
+Rendered products/edit.html.erb within layouts/application (47.2ms)
+Completed 200 OK in 133ms (Views: 113.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-24 22:22:06 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 37ms (Views: 19.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/images/products/watermelon.jpg" for 127.0.0.1 at 2011-08-24 22:22:07 -0500
+
+ActionController::RoutingError (No route matches "/images/products/watermelon.jpg"):
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started POST "/products/2" for 127.0.0.1 at 2011-08-24 22:22:17 -0500
+  Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "products" WHERE "products"."id" = 2[0m
+Redirected to http://localhost:3000/products
+Completed 302 Found in 63ms
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-24 22:22:17 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 37ms (Views: 19.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 22:22:26 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.7ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 24ms (Views: 15.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:22:28 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (71.3ms)
+Completed 500 Internal Server Error in 86ms
+
+ActionView::Template::Error (undefined method `image_url' for nil:NilClass):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28: 		<td><%= image_tag "/images/products/#{item.product.image_url}" %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2157538200_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2157538200_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 22:22:34 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (10.6ms)
+Completed 200 OK in 23ms (Views: 14.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/2" for 127.0.0.1 at 2011-08-24 22:22:36 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (39.5ms)
+Completed 500 Internal Server Error in 54ms
+
+ActionView::Template::Error (undefined method `image_url' for nil:NilClass):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28: 		<td><%= image_tag "/images/products/#{item.product.image_url}" %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2170826020_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2170826020_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (32.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (37.8ms)
+
+
+Started GET "/orders/2" for 127.0.0.1 at 2011-08-24 22:25:15 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (69.1ms)
+Completed 500 Internal Server Error in 84ms
+
+ActionView::Template::Error (undefined method `image_url' for nil:NilClass):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28: #<td><%= image_tag "/images/products/#{item.product.image_url}" %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2170383180_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2170383180_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/orders/2" for 127.0.0.1 at 2011-08-24 22:28:11 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 2)
+Rendered orders/show.html.erb within layouts/application (57.5ms)
+Completed 500 Internal Server Error in 72ms
+
+ActionView::Template::Error (undefined local variable or method `order_item' for #<#<Class:0x000001029567c8>:0x0000010293c120>):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28: <td><%= product_image(order_item.product.image_url) %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2169028100_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2169028100_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/orders/" for 127.0.0.1 at 2011-08-24 22:28:24 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 24ms (Views: 15.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:28:29 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+Rendered orders/show.html.erb within layouts/application (27.4ms)
+Completed 500 Internal Server Error in 71ms
+
+ActionView::Template::Error (undefined local variable or method `order_item' for #<#<Class:0x0000010083fff8>:0x00000100e9c090>):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28: <td><%= product_image(order_item.product.image_url) %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2157561300_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2157561300_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/orders/" for 127.0.0.1 at 2011-08-24 22:28:35 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (40.2ms)
+Completed 200 OK in 53ms (Views: 44.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2011-08-24 22:28:37 -0500
+  Processing by OrdersController#new as HTML
+Rendered orders/_form.html.erb (9.6ms)
+Rendered orders/new.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 76ms (Views: 66.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2011-08-24 22:28:47 -0500
+  Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "order"=>{"customer_id"=>"Abby", "status"=>"not shipped"}, "commit"=>"Create Order"}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (0, 'not shipped', '2011-08-25 03:28:47.676190', '2011-08-25 03:28:47.676190')[0m
+Redirected to http://localhost:3000/orders/3
+Completed 302 Found in 22ms
+
+
+Started GET "/orders/3" for 127.0.0.1 at 2011-08-24 22:28:47 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+Rendered orders/show.html.erb within layouts/application (25.1ms)
+Completed 200 OK in 40ms (Views: 29.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/orders/3/edit" for 127.0.0.1 at 2011-08-24 22:28:53 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1
+Rendered orders/_form.html.erb (11.6ms)
+Rendered orders/edit.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 98ms (Views: 55.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 22:28:55 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 25ms (Views: 16.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 22:29:01 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 67ms (Views: 19.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items?product_id=4" for 127.0.0.1 at 2011-08-24 22:29:03 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 4 AND ("order_items".order_id = 2) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (4, 2, 0, '2011-08-25 03:29:03.408238', '2011-08-25 03:29:03.408238')
+Redirected to http://localhost:3000/order_items/4
+Completed 302 Found in 74ms
+
+
+Started GET "/order_items/4" for 127.0.0.1 at 2011-08-24 22:29:03 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 4 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 37ms (Views: 14.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/order_items/4/edit" for 127.0.0.1 at 2011-08-24 22:29:08 -0500
+  Processing by OrderItemsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 4 LIMIT 1
+Rendered order_items/_form.html.erb (11.0ms)
+Rendered order_items/edit.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 70ms (Views: 18.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items/4" for 127.0.0.1 at 2011-08-24 22:29:14 -0500
+  Processing by OrderItemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "order_item"=>{"product_id"=>"4", "order_id"=>"2", "quantity"=>"4"}, "commit"=>"Update Order item", "id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 4 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "order_items" SET "quantity" = 4, "updated_at" = '2011-08-25 03:29:14.463959' WHERE "order_items"."id" = 4[0m
+Redirected to http://localhost:3000/order_items/4
+Completed 302 Found in 63ms
+
+
+Started GET "/order_items/4" for 127.0.0.1 at 2011-08-24 22:29:14 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 4 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 36ms (Views: 13.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 22:29:16 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT "order_items".* FROM "order_items"[0m
+Rendered order_items/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 67ms (Views: 17.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 22:32:26 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.7ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 24ms (Views: 15.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 22:32:53 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 23ms
+
+ActionView::Template::Error (undefined method `order_items' for nil:NilClass):
+    17:   <% end %>
+    18: </table>
+    19: <p>
+    20: 	Item Count: <%== @order.order_items.count %>
+    21: </p
+    22: 
+    23: <p><%= link_to "New Order", new_order_path %></p>
+  app/views/orders/index.html.erb:20:in `_app_views_orders_index_html_erb___448692137707804723_2171718660_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 22:34:07 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.7ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (0.9ms)
+Completed 500 Internal Server Error in 13ms
+
+ActionView::Template::Error (undefined method `order_items' for nil:NilClass):
+    8:   </tr>
+    9:   <% for order in @orders %>
+    10:     <tr><p>
+    11: 	Item Count: <%== @order.order_items.count %>
+    12: </p
+    13:       <td><%= order.customer_id %></td>
+    14:       <td><%= order.status %></td>
+  app/views/orders/index.html.erb:11:in `block in _app_views_orders_index_html_erb___448692137707804723_2156970340_3857715933482024325'
+  app/views/orders/index.html.erb:9:in `each'
+  app/views/orders/index.html.erb:9:in `_app_views_orders_index_html_erb___448692137707804723_2156970340_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (37.5ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (42.6ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 22:34:17 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.5ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 24ms (Views: 15.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:34:28 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+Rendered orders/show.html.erb within layouts/application (27.6ms)
+Completed 500 Internal Server Error in 74ms
+
+ActionView::Template::Error (undefined local variable or method `order_item' for #<#<Class:0x00000102eeef00>:0x00000102eeb9b8>):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28: <td><%= product_image(order_item.product.image_url) %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2172064500_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2172064500_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:40:26 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (38.9ms)
+Completed 500 Internal Server Error in 84ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28:    <td><%# product_image(order_item.product.image_url) %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2172533240_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2172533240_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:45:45 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (39.5ms)
+Completed 500 Internal Server Error in 54ms
+
+ActionView::Template::Error (undefined method `image_url' for nil:NilClass):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28:    <td><% product_image(item.product.image_url) %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2171006240_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2171006240_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (32.5ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (37.5ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:51:16 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (74.5ms)
+Completed 500 Internal Server Error in 90ms
+
+ActionView::Template::Error (undefined method `image_url' for nil:NilClass):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28:    <td><%= product_image(item.product.image_url) %></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2170384380_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2170384380_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:51:39 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+ERROR: compiling _app_views_orders_show_html_erb__4001850667504251438_2169069000_3857715933482024325 RAISED /Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:40: unknown regexp options - trg
+/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:44: unknown regexp options - trg
+/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:52: unknown regexp option - p
+unmatched close parenthesis: /p>
+
+<p>
+  ');@output_buffer.append= ( link_to "Edit", edit_order_path(@order) );@output_buffer.safe_concat(' |
+  ');@output_buffer.append= ( link_to "Destroy", @order, :confirm => 'Are you sure?', :method => :delete );@output_buffer.safe_concat(' |
+  ');@output_buffer.append= ( link_to "View All", orders_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</
+/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:53: unterminated string meets end of file
+/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:53: syntax error, unexpected $end, expecting ')'
+Function body:           def _app_views_orders_show_html_erb__4001850667504251438_2169069000_3857715933482024325(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "orders/show";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<h1>Your Order</h1>
+<p>
+	Item Count: ');@output_buffer.safe_concat(( @order.order_items.count ).to_s);@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<table>
+	<tr>
+		<th>Customer</th>
+		<td>');@output_buffer.append= ( @order.customer_id );@output_buffer.safe_concat('</td>
+	</tr>
+	<tr>
+		<th>Status:</th>
+		<td>');@output_buffer.append= ( @order.status );@output_buffer.safe_concat('</td>
+	</tr>
+	<tr>
+		<th>Items:</th>
+		<td>');@output_buffer.append= ( @order.order_items.count );@output_buffer.safe_concat('</td>
+	</tr>
+	<tr>
+		<th>Items</th>
+		<th>Title</th>
+		<th>Quantity</th>
+		<th>Unit Price</th>
+		<th>Subtotal</th>
+		<th>Order Total</th>
+	</tr>
+');@output_buffer.append_if_string= 	 @order.order_items.each do |item| 
+@output_buffer.safe_concat('	<tr>
+   <td>');@output_buffer.append= (# product_image(item.product.image_url) );@output_buffer.safe_concat('</td>
+		<td>');@output_buffer.append= ( item.product.title );@output_buffer.safe_concat('</td>
+		<td>');@output_buffer.append= ( item.quantity );@output_buffer.safe_concat('</td>
+		<td>');@output_buffer.append= ( print_price(item.product.price) );@output_buffer.safe_concat('</td>
+		<td>');@output_buffer.append= ( print_price item.subtotal );@output_buffer.safe_concat('</td>
+		<td>');@output_buffer.append= ( link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete );@output_buffer.safe_concat('</td>
+');	 end 
+@output_buffer.safe_concat('	<td>');@output_buffer.append= ( print_price @order.total);@output_buffer.safe_concat('</td>
+	');@output_buffer.append= ( link_to "Empty Cart", @order, :confirm => 'Are you sure?', :method => :delete );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	<!-- more code will go here -->
+</table>
+<p>
+  <strong>Customer:</strong>
+  ');@output_buffer.append= ( @order.customer_id );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+<p>
+  <strong>Status:</strong>
+  ');@output_buffer.append= ( @order.status );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+
+<p>
+  ');@output_buffer.append= ( link_to "Edit", edit_order_path(@order) );@output_buffer.safe_concat(' |
+  ');@output_buffer.append= ( link_to "Destroy", @order, :confirm => 'Are you sure?', :method => :delete );@output_buffer.safe_concat(' |
+  ');@output_buffer.append= ( link_to "View All", orders_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</p>
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_view/template.rb:258:in `module_eval'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_view/template.rb:258:in `compile'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_view/template.rb:134:in `block in render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/notifications.rb:54:in `instrument'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_view/template.rb:127:in `render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_view/render/rendering.rb:26:in `render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:93:in `render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:17:in `render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/beverly/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/benchmark.rb:310:in `realtime'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.0.9/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:150:in `process_action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:436:in `_run__758276424023058293__process_action__2083233216560847644__callbacks'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:94:in `run_callbacks'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/notifications.rb:52:in `instrument'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/base.rb:119:in `process'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/abstract_controller/rendering.rb:41:in `process'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal.rb:138:in `dispatch'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_controller/metal.rb:178:in `block in action'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:89:in `optimized_each'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/routing/route_set.rb:493:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:32:in `block in call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:12:in `cache'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.0.9/lib/active_record/query_cache.rb:31:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activerecord-3.0.9/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.0.9/lib/rails/rack/logger.rb:13:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/activesupport-3.0.9/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.2.3/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.0.9/lib/rails/application.rb:168:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.0.9/lib/rails/application.rb:77:in `method_missing'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/railties-3.0.9/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+/Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+/Users/beverly/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/beverly/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/beverly/.rvm/rubies/ruby-1.9.2-p290/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered orders/show.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 26ms
+
+ActionView::Template::Error (/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:40: unknown regexp options - trg
+/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:44: unknown regexp options - trg
+/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:52: unknown regexp option - p
+unmatched close parenthesis: /p>
+
+<p>
+  ');@output_buffer.append= ( link_to "Edit", edit_order_path(@order) );@output_buffer.safe_concat(' |
+  ');@output_buffer.append= ( link_to "Destroy", @order, :confirm => 'Are you sure?', :method => :delete );@output_buffer.safe_concat(' |
+  ');@output_buffer.append= ( link_to "View All", orders_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</
+/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:53: unterminated string meets end of file
+/Users/beverly/Rails/jsmerchant_bnelson/app/views/orders/show.html.erb:53: syntax error, unexpected $end, expecting ')'):
+    37: 	<!-- more code will go here -->
+    38: </table>
+    39: <p>
+    40:   <strong>Customer:</strong>
+    41:   <%= @order.customer_id %>
+    42: </p>
+    43: <p>
+  
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.2ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:53:17 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (38.8ms)
+Completed 500 Internal Server Error in 53ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    26: 	<% @order.order_items.each do |item| %>
+    27: 	<tr>
+    28:    <td></td>
+    29: 		<td><%= item.product.title %></td>
+    30: 		<td><%= item.quantity %></td>
+    31: 		<td><%= print_price(item.product.price) %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2170858640_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2170858640_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (32.3ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (37.3ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:54:28 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (69.3ms)
+Completed 500 Internal Server Error in 84ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:    <td></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2170394360_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2170394360_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.8ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 22:58:09 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (69.0ms)
+Completed 500 Internal Server Error in 83ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:    <td></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2168966160_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2168966160_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/orders/" for 127.0.0.1 at 2011-08-24 23:06:15 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 26ms (Views: 17.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 23:06:23 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (41.9ms)
+Completed 500 Internal Server Error in 56ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:    <td></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2171263040_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2171263040_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.0ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (39.0ms)
+
+
+Started GET "/orders/3" for 127.0.0.1 at 2011-08-24 23:07:01 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 3)
+Rendered orders/show.html.erb within layouts/application (25.9ms)
+Completed 200 OK in 41ms (Views: 30.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders/" for 127.0.0.1 at 2011-08-24 23:07:10 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 62ms (Views: 15.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/1/edit" for 127.0.0.1 at 2011-08-24 23:07:12 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+Rendered orders/_form.html.erb (13.7ms)
+Rendered orders/edit.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 33ms (Views: 22.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/" for 127.0.0.1 at 2011-08-24 23:07:16 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 60ms (Views: 15.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/2" for 127.0.0.1 at 2011-08-24 23:07:21 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (69.8ms)
+Completed 500 Internal Server Error in 85ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:    <td></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2169563180_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2169563180_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.8ms)
+
+
+Started GET "/orders/" for 127.0.0.1 at 2011-08-24 23:07:26 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.7ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 25ms (Views: 15.8ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/3" for 127.0.0.1 at 2011-08-24 23:07:27 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+Rendered orders/show.html.erb within layouts/application (25.3ms)
+Completed 200 OK in 41ms (Views: 29.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders/3/edit" for 127.0.0.1 at 2011-08-24 23:07:35 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1
+Rendered orders/_form.html.erb (41.2ms)
+Rendered orders/edit.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 60ms (Views: 48.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:07:40 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.8ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 28ms (Views: 17.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:07:47 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 68ms (Views: 19.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/order_items?product_id=3" for 127.0.0.1 at 2011-08-24 23:07:50 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"3"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 3 AND ("order_items".order_id = 2) LIMIT 1[0m
+Redirected to http://localhost:3000/order_items/3
+Completed 302 Found in 70ms
+
+
+Started GET "/order_items/3" for 127.0.0.1 at 2011-08-24 23:07:50 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 3 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 38ms (Views: 16.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:07:54 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT "order_items".* FROM "order_items"[0m
+Rendered order_items/index.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 72ms (Views: 17.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/order_items/4" for 127.0.0.1 at 2011-08-24 23:08:07 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 4 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 40ms (Views: 13.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:08:09 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT "order_items".* FROM "order_items"[0m
+Rendered order_items/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 36ms (Views: 17.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:08:17 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.7ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (44.9ms)
+Completed 200 OK in 58ms (Views: 48.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/3" for 127.0.0.1 at 2011-08-24 23:08:22 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 3)
+Rendered orders/show.html.erb within layouts/application (30.8ms)
+Completed 200 OK in 46ms (Views: 34.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:08:24 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (32.1ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 58ms (Views: 15.4ms | ActiveRecord: 32.1ms)
+
+
+Started GET "/orders/2/edit" for 127.0.0.1 at 2011-08-24 23:08:26 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+Rendered orders/_form.html.erb (10.1ms)
+Rendered orders/edit.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 28ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/orders/2" for 127.0.0.1 at 2011-08-24 23:08:30 -0500
+  Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "order"=>{"customer_id"=>"2", "status"=>"unsubmitted"}, "commit"=>"Update Order", "id"=>"2"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "orders" SET "customer_id" = 2, "updated_at" = '2011-08-25 04:08:30.617416' WHERE "orders"."id" = 2
+Redirected to http://localhost:3000/orders/2
+Completed 302 Found in 55ms
+
+
+Started GET "/orders/2" for 127.0.0.1 at 2011-08-24 23:08:30 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 2)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 2)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (76.5ms)
+Completed 500 Internal Server Error in 91ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:    <td></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2169950660_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2169950660_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.1ms)
+
+
+Started GET "/orders/2/edit" for 127.0.0.1 at 2011-08-24 23:08:33 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+Rendered orders/_form.html.erb (10.4ms)
+Rendered orders/edit.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 29ms (Views: 18.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:08:36 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 25ms (Views: 15.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/1/edit" for 127.0.0.1 at 2011-08-24 23:08:40 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+Rendered orders/_form.html.erb (10.1ms)
+Rendered orders/edit.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 29ms (Views: 17.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/orders/1" for 127.0.0.1 at 2011-08-24 23:08:46 -0500
+  Processing by OrdersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "order"=>{"customer_id"=>"Abby2", "status"=>"unsubmitted"}, "commit"=>"Update Order", "id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "orders" SET "customer_id" = 0, "updated_at" = '2011-08-25 04:08:46.912061' WHERE "orders"."id" = 1
+Redirected to http://localhost:3000/orders/1
+Completed 302 Found in 23ms
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2011-08-24 23:08:46 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 1)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 1)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (72.8ms)
+Completed 500 Internal Server Error in 87ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:    <td></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2157498860_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2157498860_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.3ms)
+
+
+Started GET "/orders/1/edit" for 127.0.0.1 at 2011-08-24 23:08:49 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+Rendered orders/_form.html.erb (42.4ms)
+Rendered orders/edit.html.erb within layouts/application (46.7ms)
+Completed 200 OK in 64ms (Views: 52.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:08:54 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 25ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/orders/1" for 127.0.0.1 at 2011-08-24 23:08:57 -0500
+  Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "id"=>"1"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 1 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mDELETE FROM "orders" WHERE "orders"."id" = 1[0m
+Redirected to http://localhost:3000/products
+Completed 302 Found in 20ms
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-24 23:08:57 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 38ms (Views: 19.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:09:03 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 60ms (Views: 51.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/orders/2" for 127.0.0.1 at 2011-08-24 23:09:07 -0500
+  Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "id"=>"2"}
+  [1m[36mOrder Load (0.1ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 2
+Redirected to http://localhost:3000/products
+Completed 302 Found in 19ms
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-24 23:09:07 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 2 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (NULL, 'unsubmitted', '2011-08-25 04:09:07.232307', '2011-08-25 04:09:07.232307')
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 81ms (Views: 19.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/order_items?product_id=1" for 127.0.0.1 at 2011-08-24 23:09:11 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 1 AND ("order_items".order_id = 4) LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (1, 4, 0, '2011-08-25 04:09:11.809986', '2011-08-25 04:09:11.809986')
+Redirected to http://localhost:3000/order_items/5
+Completed 302 Found in 80ms
+
+
+Started GET "/order_items/5" for 127.0.0.1 at 2011-08-24 23:09:11 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 5 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 37ms (Views: 15.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:09:18 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.3ms)[0m  SELECT "order_items".* FROM "order_items"
+Rendered order_items/index.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 39ms (Views: 19.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:09:24 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:09:29 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (85.6ms)
+Completed 500 Internal Server Error in 101ms
+
+ActionView::Template::Error (undefined local variable or method `item' for #<#<Class:0x00000102c57468>:0x00000102c53b60>):
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+    33: 		<td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete %></td>
+    34: 	<% end %>
+    35: 	<td><%= print_price @order.total%></td>
+  app/views/orders/show.html.erb:32:in `block in _app_views_orders_show_html_erb__4001850667504251438_2170717520_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2170717520_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:10:47 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (47.5ms)
+Completed 200 OK in 71ms (Views: 53.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:12:11 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 23ms (Views: 14.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:12:14 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+Rendered orders/show.html.erb within layouts/application (59.0ms)
+Completed 500 Internal Server Error in 75ms
+
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0x00000100e74a90>:0x00000100e62bb0>):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:         <td><%= image_tag "/images/products/#{product.image_url}" %></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2154970380_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2154970380_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.2ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:12:16 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (14.2ms)
+Completed 200 OK in 27ms (Views: 18.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/orders/3" for 127.0.0.1 at 2011-08-24 23:12:18 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 3)
+Rendered orders/show.html.erb within layouts/application (27.3ms)
+Completed 200 OK in 42ms (Views: 30.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:12:31 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (48.1ms)
+Completed 200 OK in 61ms (Views: 52.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:12:33 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+Rendered orders/show.html.erb within layouts/application (28.9ms)
+Completed 500 Internal Server Error in 43ms
+
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0x00000102ae9590>:0x00000102ae68b8>):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:         <td><%= image_tag "/images/products/#{product.image_url}" %></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2169972320_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2169972320_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (34.4ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (41.2ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:13:14 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+Rendered orders/show.html.erb within layouts/application (28.4ms)
+Completed 500 Internal Server Error in 43ms
+
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0x00000102b787b8>:0x00000102b75ea0>):
+    25: 	</tr>
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28:         <td><%= image_tag "/images/products/<!--#{product.image_url}-->" %></td>
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+  app/views/orders/show.html.erb:28:in `block in _app_views_orders_show_html_erb__4001850667504251438_2170258780_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2170258780_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (36.9ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:14:20 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (84.6ms)
+Completed 500 Internal Server Error in 99ms
+
+ActionView::Template::Error (undefined local variable or method `item' for #<#<Class:0x00000102bdc3f8>:0x00000102bd9b08>):
+    29: 		<td><%= order_item.product.title %></td>
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price item.subtotal %></td>
+    33: 		<td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete %></td>
+    34: 	<% end %>
+    35: 	<td><%= print_price @order.total%></td>
+  app/views/orders/show.html.erb:32:in `block in _app_views_orders_show_html_erb__4001850667504251438_2170444620_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2170444620_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.9ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:14:57 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (83.7ms)
+Completed 500 Internal Server Error in 98ms
+
+ActionView::Template::Error (undefined local variable or method `item' for #<#<Class:0x000001012216e8>:0x0000010121a3c0>):
+    30: 		<td><%= order_item.quantity %></td>
+    31: 		<td><%= print_price order_item.product.price %></td>
+    32: 		<td><%= print_price order_item.subtotal %></td>
+    33: 		<td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete %></td>
+    34: 	<% end %>
+    35: 	<td><%= print_price @order.total%></td>
+    36: 	<%= link_to "Empty Cart", @order, :confirm => 'Are you sure?', :method => :delete %>
+  app/views/orders/show.html.erb:33:in `block in _app_views_orders_show_html_erb__4001850667504251438_2156971360_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2156971360_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.6ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.5ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:15:15 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (82.0ms)
+Completed 200 OK in 127ms (Views: 85.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/orders/" for 127.0.0.1 at 2011-08-24 23:15:22 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 24ms (Views: 14.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/3" for 127.0.0.1 at 2011-08-24 23:15:24 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+Rendered orders/show.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 71ms (Views: 29.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:15:28 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (83.7ms)
+Completed 200 OK in 99ms (Views: 87.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/orders/4/edit" for 127.0.0.1 at 2011-08-24 23:15:47 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+Rendered orders/_form.html.erb (9.4ms)
+Rendered orders/edit.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 58ms (Views: 17.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:15:49 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 24ms (Views: 14.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:15:54 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 69ms (Views: 19.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/order_items?product_id=4" for 127.0.0.1 at 2011-08-24 23:15:56 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 4 AND ("order_items".order_id = 4) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (4, 4, 0, '2011-08-25 04:15:56.728383', '2011-08-25 04:15:56.728383')[0m
+Redirected to http://localhost:3000/order_items/6
+Completed 302 Found in 74ms
+
+
+Started GET "/order_items/6" for 127.0.0.1 at 2011-08-24 23:15:56 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 6 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 36ms (Views: 14.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:16:00 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT "order_items".* FROM "order_items"[0m
+Rendered order_items/index.html.erb within layouts/application (15.1ms)
+Completed 200 OK in 38ms (Views: 19.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:16:04 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 25ms (Views: 15.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:16:06 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (84.4ms)
+Completed 200 OK in 99ms (Views: 87.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:18:32 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (83.5ms)
+Completed 500 Internal Server Error in 98ms
+
+ActionView::Template::Error (undefined method `product_image' for #<#<Class:0x0000010296b7e0>:0x00000102963c70>):
+    26: 	<% @order.order_items.each do |order_item| %>
+    27: 	<tr>
+    28: 		<!--previous image tag <td><%= image_tag "/images/products/{product.image_url}" %></td>-->
+    29:         <td><%= product_image(order_item.product.image_url) %></td>
+    30: 		<td><%= order_item.product.title %></td>
+    31: 		<td><%= order_item.quantity %></td>
+    32: 		<td><%= print_price order_item.product.price %></td>
+  app/views/orders/show.html.erb:29:in `block in _app_views_orders_show_html_erb__4001850667504251438_2169180520_3857715933482024325'
+  app/views/orders/show.html.erb:26:in `_app_views_orders_show_html_erb__4001850667504251438_2169180520_3857715933482024325'
+
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/beverly/.rvm/gems/ruby-1.9.2-p290/gems/actionpack-3.0.9/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.7ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:19:10 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (84.5ms)
+Completed 200 OK in 99ms (Views: 87.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:22:10 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (85.5ms)
+Completed 200 OK in 100ms (Views: 88.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/4/edit" for 127.0.0.1 at 2011-08-24 23:22:17 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+Rendered orders/_form.html.erb (9.9ms)
+Rendered orders/edit.html.erb within layouts/application (45.1ms)
+Completed 200 OK in 60ms (Views: 49.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:22:19 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 25ms (Views: 15.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/4/edit" for 127.0.0.1 at 2011-08-24 23:22:25 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+Rendered orders/_form.html.erb (41.3ms)
+Rendered orders/edit.html.erb within layouts/application (45.2ms)
+Completed 200 OK in 60ms (Views: 49.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:22:26 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (86.6ms)
+Completed 200 OK in 102ms (Views: 90.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:22:28 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 24ms (Views: 15.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:22:34 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 85ms (Views: 64.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items?product_id=1" for 127.0.0.1 at 2011-08-24 23:22:43 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 1 AND ("order_items".order_id = 4) LIMIT 1[0m
+Redirected to http://localhost:3000/order_items/5
+Completed 302 Found in 68ms
+
+
+Started GET "/order_items/5" for 127.0.0.1 at 2011-08-24 23:22:43 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 5 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 37ms (Views: 14.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/order_items/5" for 127.0.0.1 at 2011-08-24 23:30:20 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 5 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 35ms (Views: 14.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:30:25 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.4ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT "order_items".* FROM "order_items"[0m
+Rendered order_items/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 69ms (Views: 19.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:30:31 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (47.2ms)
+Completed 200 OK in 70ms (Views: 51.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items?product_id=4" for 127.0.0.1 at 2011-08-24 23:30:33 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mAREL (50.7ms)[0m  [1mINSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (4, 4, 1, '2011-08-25 04:30:33.797758', '2011-08-25 04:30:33.797758')[0m
+Redirected to http://localhost:3000/order_items/7
+Completed 302 Found in 93ms
+
+
+Started GET "/order_items/7" for 127.0.0.1 at 2011-08-24 23:30:33 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 7 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 35ms (Views: 13.9ms | ActiveRecord: 51.5ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:30:36 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT "order_items".* FROM "order_items"[0m
+Rendered order_items/index.html.erb within layouts/application (48.8ms)
+Completed 200 OK in 72ms (Views: 52.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:30:42 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 25ms (Views: 16.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:30:44 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (54.4ms)
+Completed 200 OK in 101ms (Views: 57.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:31:39 -0500
+  Processing by ProductsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 38ms (Views: 19.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/order_items?product_id=1" for 127.0.0.1 at 2011-08-24 23:31:44 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"1"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (1, 4, 1, '2011-08-25 04:31:45.076929', '2011-08-25 04:31:45.076929')[0m
+Redirected to http://localhost:3000/order_items/8
+Completed 302 Found in 72ms
+
+
+Started GET "/order_items/8" for 127.0.0.1 at 2011-08-24 23:31:45 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 8 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 67ms (Views: 14.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:31:51 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.7ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 24ms (Views: 14.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:31:55 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (85.7ms)
+Completed 200 OK in 132ms (Views: 88.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/order_items/6" for 127.0.0.1 at 2011-08-24 23:32:02 -0500
+  Processing by OrderItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "id"=>"6"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 6 LIMIT 1
+  [1m[36mAREL (80.7ms)[0m  [1mDELETE FROM "order_items" WHERE "order_items"."id" = 6[0m
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 255ms
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:32:03 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 57ms (Views: 47.8ms | ActiveRecord: 81.8ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:32:05 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (86.5ms)
+Completed 200 OK in 101ms (Views: 89.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/order_items/5" for 127.0.0.1 at 2011-08-24 23:32:09 -0500
+  Processing by OrderItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "id"=>"5"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 5 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  DELETE FROM "order_items" WHERE "order_items"."id" = 5
+Redirected to http://localhost:3000/orders
+Completed 302 Found in 64ms
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:32:09 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 25ms (Views: 15.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:32:11 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+Rendered orders/show.html.erb within layouts/application (85.3ms)
+Completed 200 OK in 100ms (Views: 88.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:33:11 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 54ms (Views: 14.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/new" for 127.0.0.1 at 2011-08-24 23:33:13 -0500
+  Processing by OrdersController#new as HTML
+Rendered orders/_form.html.erb (7.0ms)
+Rendered orders/new.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 24ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/orders" for 127.0.0.1 at 2011-08-24 23:33:22 -0500
+  Processing by OrdersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "order"=>{"customer_id"=>"Jacob", "status"=>"not shipped"}, "commit"=>"Create Order"}
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (0, 'not shipped', '2011-08-25 04:33:22.105082', '2011-08-25 04:33:22.105082')[0m
+Redirected to http://localhost:3000/orders/5
+Completed 302 Found in 55ms
+
+
+Started GET "/orders/5" for 127.0.0.1 at 2011-08-24 23:33:22 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 5 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 5)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 5)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 5)[0m
+Rendered orders/show.html.erb within layouts/application (57.5ms)
+Completed 200 OK in 73ms (Views: 61.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/orders/5/edit" for 127.0.0.1 at 2011-08-24 23:33:24 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mOrder Load (0.2ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 5 LIMIT 1
+Rendered orders/_form.html.erb (10.7ms)
+Rendered orders/edit.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 30ms (Views: 19.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/5" for 127.0.0.1 at 2011-08-24 23:33:28 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 5 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 5)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 5)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 5)
+Rendered orders/show.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 72ms (Views: 29.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:33:36 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 69ms (Views: 51.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items?product_id=3" for 127.0.0.1 at 2011-08-24 23:33:38 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"3"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  INSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (3, 4, 1, '2011-08-25 04:33:38.948753', '2011-08-25 04:33:38.948753')
+Redirected to http://localhost:3000/order_items/9
+Completed 302 Found in 40ms
+
+
+Started GET "/order_items/9" for 127.0.0.1 at 2011-08-24 23:33:38 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 9 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 35ms (Views: 13.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/order_items/9/edit" for 127.0.0.1 at 2011-08-24 23:33:42 -0500
+  Processing by OrderItemsController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 9 LIMIT 1
+Rendered order_items/_form.html.erb (11.3ms)
+Rendered order_items/edit.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 74ms (Views: 19.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items/9" for 127.0.0.1 at 2011-08-24 23:33:47 -0500
+  Processing by OrderItemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "order_item"=>{"product_id"=>"3", "order_id"=>"4", "quantity"=>"5"}, "commit"=>"Update Order item", "id"=>"9"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 9 LIMIT 1
+  [1m[36mAREL (207.7ms)[0m  [1mUPDATE "order_items" SET "quantity" = 5, "updated_at" = '2011-08-25 04:33:47.814086' WHERE "order_items"."id" = 9[0m
+Redirected to http://localhost:3000/order_items/9
+Completed 302 Found in 241ms
+
+
+Started GET "/order_items/9" for 127.0.0.1 at 2011-08-24 23:33:48 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 9 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 35ms (Views: 14.0ms | ActiveRecord: 208.6ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:33:49 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mOrderItem Load (0.3ms)[0m  [1mSELECT "order_items".* FROM "order_items"[0m
+Rendered order_items/index.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 73ms (Views: 20.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:33:54 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 25ms (Views: 16.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/5" for 127.0.0.1 at 2011-08-24 23:33:57 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mOrder Load (0.1ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 5 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 5)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 5)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 5)
+Rendered orders/show.html.erb within layouts/application (25.7ms)
+Completed 200 OK in 40ms (Views: 29.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:34:02 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (44.8ms)
+Completed 200 OK in 57ms (Views: 48.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/4" for 127.0.0.1 at 2011-08-24 23:34:04 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 4)
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 4)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (97.2ms)
+Completed 200 OK in 116ms (Views: 103.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/orders/4" for 127.0.0.1 at 2011-08-24 23:35:39 -0500
+  Processing by OrdersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  DELETE FROM "orders" WHERE "orders"."id" = 4
+Redirected to http://localhost:3000/products
+Completed 302 Found in 20ms
+
+
+Started GET "/products" for 127.0.0.1 at 2011-08-24 23:35:39 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.1ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 4 LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  INSERT INTO "orders" ("customer_id", "status", "created_at", "updated_at") VALUES (NULL, 'unsubmitted', '2011-08-25 04:35:39.583053', '2011-08-25 04:35:39.583053')
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+Rendered products/index.html.erb within layouts/application (15.3ms)
+Completed 200 OK in 49ms (Views: 19.8ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/order_items?product_id=4" for 127.0.0.1 at 2011-08-24 23:35:43 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"4"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1
+  [1m[36mAREL (0.3ms)[0m  [1mINSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (4, 6, 1, '2011-08-25 04:35:43.110516', '2011-08-25 04:35:43.110516')[0m
+Redirected to http://localhost:3000/order_items/10
+Completed 302 Found in 73ms
+
+
+Started GET "/order_items/10" for 127.0.0.1 at 2011-08-24 23:35:43 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 10 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 67ms (Views: 45.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/order_items/10/edit" for 127.0.0.1 at 2011-08-24 23:35:45 -0500
+  Processing by OrderItemsController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 10 LIMIT 1[0m
+Rendered order_items/_form.html.erb (11.1ms)
+Rendered order_items/edit.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 41ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items/10" for 127.0.0.1 at 2011-08-24 23:35:50 -0500
+  Processing by OrderItemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "order_item"=>{"product_id"=>"4", "order_id"=>"6", "quantity"=>"7"}, "commit"=>"Update Order item", "id"=>"10"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 10 LIMIT 1[0m
+  [1m[35mAREL (11.1ms)[0m  UPDATE "order_items" SET "quantity" = 7, "updated_at" = '2011-08-25 04:35:50.713262' WHERE "order_items"."id" = 10
+Redirected to http://localhost:3000/order_items/10
+Completed 302 Found in 203ms
+
+
+Started GET "/order_items/10" for 127.0.0.1 at 2011-08-24 23:35:50 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 10 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 67ms (Views: 13.6ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:35:54 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.3ms)[0m  SELECT "order_items".* FROM "order_items"
+Rendered order_items/index.html.erb within layouts/application (17.1ms)
+Completed 200 OK in 41ms (Views: 21.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:35:58 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (11.7ms)
+Completed 200 OK in 24ms (Views: 15.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/6" for 127.0.0.1 at 2011-08-24 23:36:01 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 6)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 6)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 6)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (83.4ms)
+Completed 200 OK in 98ms (Views: 86.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:36:05 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (43.1ms)
+Completed 200 OK in 56ms (Views: 47.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/5" for 127.0.0.1 at 2011-08-24 23:36:07 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mOrder Load (0.1ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 5 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 5)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 5)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 5)[0m
+Rendered orders/show.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 40ms (Views: 29.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:36:08 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (11.8ms)
+Completed 200 OK in 25ms (Views: 15.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/3" for 127.0.0.1 at 2011-08-24 23:36:10 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mOrder Load (0.2ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 3 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 3)[0m
+  [1m[35mOrderItem Load (0.1ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 3)
+Rendered orders/show.html.erb within layouts/application (57.3ms)
+Completed 200 OK in 71ms (Views: 60.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:36:12 -0500
+  Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.6ms)[0m  [1mSELECT "orders".* FROM "orders"[0m
+Rendered orders/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 25ms (Views: 16.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/6" for 127.0.0.1 at 2011-08-24 23:36:15 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 6)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 6)
+  [1m[36mOrderItem Load (0.1ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 6)[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 98ms (Views: 54.8ms | ActiveRecord: 0.8ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateProducts (20110813062627)
+Migrating to AddStockToProducts (20110813120809)
+Migrating to CreateOrderItems (20110813132156)
+Migrating to CreateOrders (20110813132411)
+Migrating to AddDefaultValueToOrderItemsQuantity (20110821062431)
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("order_items")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("orders")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("products")
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:40:50 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 36ms (Views: 18.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items?product_id=4" for 127.0.0.1 at 2011-08-24 23:40:53 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"4"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 4 AND ("order_items".order_id = 6) LIMIT 1
+Redirected to http://localhost:3000/order_items/10
+Completed 302 Found in 67ms
+
+
+Started GET "/order_items/10" for 127.0.0.1 at 2011-08-24 23:40:53 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 10 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 69ms (Views: 13.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/order_items" for 127.0.0.1 at 2011-08-24 23:40:58 -0500
+  Processing by OrderItemsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.4ms)[0m  SELECT "order_items".* FROM "order_items"
+Rendered order_items/index.html.erb within layouts/application (17.7ms)
+Completed 200 OK in 41ms (Views: 21.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:41:06 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 36ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items?product_id=4" for 127.0.0.1 at 2011-08-24 23:41:08 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"4"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 4 AND ("order_items".order_id = 6) LIMIT 1
+Redirected to http://localhost:3000/order_items/10
+Completed 302 Found in 68ms
+
+
+Started GET "/order_items/10" for 127.0.0.1 at 2011-08-24 23:41:08 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 10 LIMIT 1
+Rendered order_items/show.html.erb within layouts/application (43.3ms)
+Completed 200 OK in 69ms (Views: 47.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2011-08-24 23:41:16 -0500
+  Processing by ProductsController#index as HTML
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mProduct Load (0.3ms)[0m  SELECT "products".* FROM "products"
+Rendered products/index.html.erb within layouts/application (15.2ms)
+Completed 200 OK in 37ms (Views: 19.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/order_items?product_id=1" for 127.0.0.1 at 2011-08-24 23:41:18 -0500
+  Processing by OrderItemsController#create as HTML
+  Parameters: {"authenticity_token"=>"Oq3LERXduJQ0s0F5CsNLjJpAqs53kmhSCk33w0nzrP0=", "product_id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE "order_items"."product_id" = 1 AND ("order_items".order_id = 6) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "order_items" ("product_id", "order_id", "quantity", "created_at", "updated_at") VALUES (1, 6, 0, '2011-08-25 04:41:18.681586', '2011-08-25 04:41:18.681586')[0m
+Redirected to http://localhost:3000/order_items/11
+Completed 302 Found in 42ms
+
+
+Started GET "/order_items/11" for 127.0.0.1 at 2011-08-24 23:41:18 -0500
+  Processing by OrderItemsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mOrder Load (0.3ms)[0m  SELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1
+  [1m[36mOrderItem Load (0.2ms)[0m  [1mSELECT "order_items".* FROM "order_items" WHERE "order_items"."id" = 11 LIMIT 1[0m
+Rendered order_items/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 67ms (Views: 13.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:41:29 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 24ms (Views: 15.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/orders/6" for 127.0.0.1 at 2011-08-24 23:41:31 -0500
+  Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mOrder Load (0.3ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 6)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "order_items" WHERE ("order_items".order_id = 6)[0m
+  [1m[35mOrderItem Load (0.2ms)[0m  SELECT "order_items".* FROM "order_items" WHERE ("order_items".order_id = 6)
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1[0m
+  [1m[35mProduct Load (0.2ms)[0m  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1
+Rendered orders/show.html.erb within layouts/application (84.3ms)
+Completed 200 OK in 99ms (Views: 87.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/6/edit" for 127.0.0.1 at 2011-08-24 23:42:40 -0500
+  Processing by OrdersController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mOrder Load (0.4ms)[0m  [1mSELECT "orders".* FROM "orders" WHERE "orders"."id" = 6 LIMIT 1[0m
+Rendered orders/_form.html.erb (9.8ms)
+Rendered orders/edit.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 28ms (Views: 17.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2011-08-24 23:42:42 -0500
+  Processing by OrdersController#index as HTML
+  [1m[35mOrder Load (0.6ms)[0m  SELECT "orders".* FROM "orders"
+Rendered orders/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 25ms (Views: 15.8ms | ActiveRecord: 0.6ms)

@@ -2,6 +2,7 @@ class OrderItemsController < ApplicationController
   before_filter :load_order
   
   def create
+    #@order_item = @order.order_items.new(:quantity =>1, :product_id => params[:product_id])
     @order_item = @order.order_items.find_or_initialize_by_product_id(params[:product_id])
     if @order_item.save
       redirect_to @order_item, :notice => "Successfully created order item."
@@ -9,6 +10,12 @@ class OrderItemsController < ApplicationController
       render :action => 'new'
     end
   end
+  def index
+    @order_item = OrderItem.all
+  end
+  def show
+      @order_item = OrderItem.find(params[:id])
+    end
 
   def edit
     @order_item = OrderItem.find(params[:id])

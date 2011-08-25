@@ -1,7 +1,7 @@
 <h1>Your Order</h1>
-<p>
+<!--><p>
 	Item Count: <%== @order.order_items.count %>
-</p>
+</p>-->
 <table>
 	<tr>
 		<th>Customer</th>
@@ -23,14 +23,15 @@
 		<th>Subtotal</th>
 		<th>Order Total</th>
 	</tr>
-	<% @order.order_items.each do |item| %>
+	<% @order.order_items.each do |order_item| %>
 	<tr>
-		<td><%= image_tag "/images/products/#{item.product.image_url}" %></td>
-		<td><%= item.product.title %></td>
-		<td><%= item.quantity %></td>
-		<td><%= print_price(item.product.price) %></td>
-		<td><%= print_price item.subtotal %></td>
-		<td><%= link_to "Remove", item, :confirm => 'Are you sure?', :method => :delete %></td>
+		<!--previous image tag <td><%= image_tag "/images/products/{product.image_url}" %></td>-->
+        <td><%= image_tag "/images/products/{product.image_url}" %></td>
+		<td><%= order_item.product.title %></td>
+		<td><%= order_item.quantity %></td>
+		<td><%= print_price order_item.product.price %></td>
+		<td><%= print_price order_item.subtotal %></td>
+		<td><%= link_to "Remove", order_item, :confirm => 'Are you sure?', :method => :delete %></td>
 	<% end %>
 	<td><%= print_price @order.total%></td>
 	<%= link_to "Empty Cart", @order, :confirm => 'Are you sure?', :method => :delete %>
